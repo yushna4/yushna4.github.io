@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <title>Your Medicine Controller</title>
     <meta charset="utf-8" />
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
+
 <body class="is-preload landing">
     <div id="page-wrapper">
 
@@ -29,7 +31,7 @@
                     <h2>Authentication</h2>
                     <p>Enter your credentials to access the medicine controller.</p>
                 </header>
-                <form method="post" action="#" class="cta">
+                <form method="post" action="#" class="cta" onsubmit="authenticate(event)">
                     <div class="row gtr-uniform gtr-50">
                         <div class="col-6 col-12-medium">
                             <input type="text" name="username" id="username" placeholder="Username" required />
@@ -46,7 +48,7 @@
         </section>
 
         <!-- Medicine Controller Form -->
-        <section id="medicine-controller">
+        <section id="medicine-controller" class="wrapper style1 special fade-up" style="display: none;">
             <div class="container">
                 <header class="major">
                     <h2>Manage Your Medicine</h2>
@@ -93,5 +95,23 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        function authenticate(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Perform authentication
+            if (username === "group2" && password === "smartmedicine") {
+                // Hide authentication section
+                document.getElementById("authentication").style.display = "none";
+                // Show medicine controller section
+                document.getElementById("medicine-controller").style.display = "block";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        }
+    </script>
 </body>
+
 </html>
