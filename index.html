@@ -103,14 +103,15 @@
 
             // Perform authentication
             $.post("/authenticate", { username: username, password: password }, function (data) {
-            if (data === "success") {
-              // Hide authentication section
-              document.getElementById("authentication").style.display = "none";
-              // Show medicine controller section
-              document.getElementById("medicine-controller").style.display = "block";
-            } else {
+              if (data === "success") {
+                // Hide authentication section
+                document.getElementById("authentication").style.display = "none";
+                // Show medicine controller section
+                document.getElementById("medicine-controller").style.display = "block";
+              } else {
                 alert("Invalid credentials. Please try again.");
-            }
+              }
+            });  
         }
     </script>
 </body>
